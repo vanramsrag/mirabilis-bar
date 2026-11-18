@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mirabilis Lounge — Bar & Kitchen · Menu</title>
+<meta name="description" content="Mirabilis Lounge — Bar & Kitchen. A beachfront lounge, bar and kitchen on the sand at Akkarai, ECR — Chennai. Download our food and bar menus.">
+<meta name="theme-color" content="#08131a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #08131a;
+    --deep: #0c1f27;
+    --emerald: #0f3d37;
+    --emerald-lit: #1b6b5c;
+    --brass: #c9a45c;
+    --brass-soft: #e3c98f;
+    --cream: #f3ead8;
+    --muted: #9db0ad;
+    --serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% 0%, rgba(27,107,92,.38), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 50% 100%, rgba(201,164,92,.12), transparent 70%),
+      linear-gradient(180deg, var(--ink) 0%, var(--deep) 60%, var(--ink) 100%);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+  }
+  /* subtle grain */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: .05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    z-index: 0;
+  }
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(36px, 7vh, 72px) 24px 140px;
+  }
+
+  /* Logo */
+  .logo {
+    width: clamp(190px, 38vw, 300px);
+    height: auto;
+    color: var(--brass);
+    filter: drop-shadow(0 0 28px rgba(201,164,92,.28));
+    animation: rise 1.2s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .logo .mark__rosette { color: var(--brass-soft); }
+
+  .eyebrow {
+    margin-top: 34px;
+    font-size: .72rem;
+    letter-spacing: .42em;
+    text-transform: uppercase;
+    color: var(--brass);
+    animation: rise 1.2s .15s cubic-bezier(.2,.7,.2,1) both;
+  }
+  h1 {
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.3rem, 6.4vw, 4.2rem);
+    line-height: 1.05;
+    letter-spacing: .02em;
+    color: var(--cream);
+    animation: rise 1.2s .25s cubic-bezier(.2,.7,.2,1) both;
+  }
+  h1 .amp { font-style: italic; color: var(--brass); font-weight: 400; }
+  .sub {
+    margin-top: 10px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+    color: var(--muted);
+    animation: rise 1.2s .35s cubic-bezier(.2,.7,.2,1) both;
+  }
+
+  .divider {
+    margin: 34px auto 38px;
+    width: 140px;
+    display: flex; align-items: center; gap: 12px;
+    color: var(--brass);
+    animation: rise 1.2s .4s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .divider::before, .divider::after {
+    content: ""; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--brass));
+  }
+  .divider::after { background: linear-gradient(270deg, transparent, var(--brass)); }
+  .divider i {
+    width: 7px; height: 7px; transform: rotate(45deg);
+    border: 1px solid var(--brass);
+  }
+
+  /* Menu links */
+  .menus {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    width: min(100%, 640px);
+    animation: rise 1.2s .5s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 34px 20px 28px;
+    text-decoration: none;
+    color: var(--cream);
+    border: 1px solid rgba(201,164,92,.45);
+    border-radius: 3px;
+    background:
+      linear-gradient(160deg, rgba(27,107,92,.35), rgba(15,61,55,.18) 60%, rgba(8,19,26,.4));
+    overflow: hidden;
+    transition: transform .45s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .45s;
+  }
+  .card::before {
+    content: "";
+    position: absolute; inset: 6px;
+    border: 1px solid rgba(201,164,92,.18);
+    border-radius: 2px;
+    pointer-events: none;
+    transition: border-color .35s;
+  }
+  .card::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(227,201,143,.16) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-5px);
+    border-color: var(--brass-soft);
+    box-shadow: 0 18px 40px -18px rgba(0,0,0,.7), 0 0 0 1px rgba(201,164,92,.25);
+    outline: none;
+  }
+  .card:hover::before, .card:focus-visible::before { border-color: rgba(201,164,92,.5); }
+  .card:hover::after, .card:focus-visible::after { transform: translateX(120%); }
+  .card .num {
+    font-size: .68rem; letter-spacing: .36em; text-transform: uppercase;
+    color: var(--brass);
+  }
+  .card .title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    line-height: 1.1;
+  }
+  .card .note {
+    font-size: .82rem; color: var(--muted); letter-spacing: .03em;
+  }
+  .card .dl {
+    margin-top: 16px;
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--brass-soft);
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(201,164,92,.5);
+  }
+  .card .dl svg { width: 14px; height: 14px; transition: transform .35s; }
+  .card:hover .dl svg { transform: translateY(2px); }
+
+  /* Info */
+  .info {
+    margin-top: 46px;
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px 34px;
+    font-size: .78rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    animation: rise 1.2s .65s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .info b { color: var(--brass); font-weight: 400; margin-right: 8px; }
+
+  /* Waves */
+  .waves {
+    position: fixed; left: 0; right: 0; bottom: 0;
+    height: 120px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .waves svg { width: 200%; height: 100%; display: block; }
+  .waves .w1 { animation: drift 22s linear infinite; }
+  .waves .w2 { animation: drift 34s linear infinite reverse; }
+  .waves .w3 { animation: drift 48s linear infinite; }
+
+  footer {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 0 20px 22px;
+    font-size: .68rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: rgba(243,234,216,.55);
+  }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  @media (max-width: 520px) {
+    .menus { grid-template-columns: 1fr; }
+    .info { flex-direction: column; gap: 8px; }
+    main { padding-bottom: 130px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <!-- Logo -->
+  <svg class="logo" viewBox="565 565 870 870" fill="currentColor" role="img" aria-label="Mirabilis Lounge logo" focusable="false"><path transform="matrix(1,0,0,-1,1000,580)" d="M0 0C-231.6 0-420-188.4-420-420-420-651.6-231.6-840 0-840 231.6-840 420-651.6 420-420 420-188.4 231.6 0 0 0M0-850C-58-850-114.4-838.6-167.4-816.2-218.6-794.5-264.6-763.5-304.1-724.1-343.5-684.6-374.5-638.6-396.2-587.4-418.6-534.4-430-478-430-420-430-362-418.6-305.6-396.2-252.6-374.5-201.4-343.5-155.4-304.1-115.9-264.6-76.5-218.6-45.5-167.4-23.8-114.4-1.4-58 10 0 10 58 10 114.4-1.4 167.4-23.8 218.6-45.5 264.6-76.5 304.1-115.9 343.5-155.4 374.5-201.4 396.2-252.6 418.6-305.6 430-362 430-420 430-478 418.6-534.4 396.2-587.4 374.5-638.6 343.5-684.6 304.1-724.1 264.6-763.5 218.6-794.5 167.4-816.2 114.4-838.6 58-850 0-850"></path><path transform="matrix(1,0,0,-1,1000,610)" d="M0 0C-215 0-390-175-390-390-390-605-215-780 0-780 215-780 390-605 390-390 390-175 215 0 0 0M0-800C-55.3-800-109-789.2-159.6-767.8-208.4-747.1-252.3-717.6-289.9-679.9-327.6-642.3-357.1-598.4-377.8-549.6-399.2-499-410-445.3-410-390-410-334.7-399.2-281-377.8-230.4-357.1-181.6-327.6-137.7-289.9-100.1-252.3-62.4-208.4-32.9-159.6-12.2-109 9.2-55.3 20 0 20 55.3 20 109 9.2 159.6-12.2 208.4-32.9 252.3-62.4 289.9-100.1 327.6-137.7 357.1-181.6 377.8-230.4 399.2-281 410-334.7 410-390 410-445.3 399.2-499 377.8-549.6 357.1-598.4 327.6-642.3 289.9-679.9 252.3-717.6 208.4-747.1 159.6-767.8 109-789.2 55.3-800 0-800"></path><path transform="matrix(1,0,0,-1,1000,732.141)" d="M0 0C-147.7 0-267.9-120.2-267.9-267.9-267.9-415.6-147.7-535.7 0-535.7 147.7-535.7 267.9-415.6 267.9-267.9 267.9-120.2 147.7 0 0 0M0-549.5C-38-549.5-74.9-542-109.6-527.3-143.1-513.1-173.3-492.8-199.1-467-225-441.1-245.3-411-259.5-377.5-274.1-342.8-281.6-305.9-281.6-267.9-281.6-229.8-274.1-193-259.5-158.2-245.3-124.7-225-94.6-199.1-68.7-173.3-42.9-143.1-22.6-109.6-8.4-74.9 6.3-38 13.7 0 13.7 38 13.7 74.9 6.3 109.6-8.4 143.1-22.6 173.3-42.9 199.1-68.7 225-94.6 245.3-124.7 259.5-158.2 274.1-193 281.6-229.8 281.6-267.9 281.6-305.9 274.1-342.8 259.5-377.5 245.3-411 225-441.1 199.1-467 173.3-492.8 143.1-513.1 109.6-527.3 74.9-542 38-549.5 0-549.5"></path><path transform="matrix(1,0,0,-1,682.5,1000)" d="M0 0C0-11-9-20-20-20-31-20-40-11-40 0-40 11-31 20-20 20-9 20 0 11 0 0"></path><path transform="matrix(1,0,0,-1,1357.5,1000)" d="M0 0C0-11-9-20-20-20-31-20-40-11-40 0-40 11-31 20-20 20-9 20 0 11 0 0"></path><g class="mark__rosette"><path transform="matrix(1,0,0,-1,990.819,902.998)" d="M0 0C-17-18.9-37.8-29.9-62.9-33.4-61.2-60-69.1-83.3-84.8-103.9-84.1-105-83.9-105.6-83.4-106-66.7-121.9-55.8-140.9-52.7-164.1-52.4-166.8-50.1-167-47.8-167-39.1-167.3-30.4-167.4-21.9-169.6-7.1-173.5 6.3-179.9 18.8-189.3 27.6-180.7 36.3-172.8 47.1-167.2 57.9-161.6 69.3-158.2 81.8-155.8 80-129.4 88.3-106.3 103.8-85.3 85.2-68.3 74.3-47.5 70.7-22.7 44.1-23.8 21-16.4 0 0M-99.6-119.9C-106.6-124.8-113.2-129.5-120.3-134.5-114.3-140.4-107.5-145.3-103.4-152.8-89.2-179-91.9-204-108.3-228.4-116.5-240.6-123.5-253.5-120.5-269.1-119.7-273.2-117.8-277.1-116.2-281.8-124.1-283.1-130.4-281.3-135.3-275.3-140.1-269.6-140.5-262.4-141-255-153.4-253.8-165-251.3-169.3-237.4-170-235.4-170.8-233.2-168.9-231.4-168.6-231.4-168.3-231.2-168.1-231.3-137.9-237.6-123.7-228.6-116-196.5-110.1-172-124.4-145.4-154.1-146.8-173.6-147.8-187.2-161.3-185.7-179.5-185-188.1-180.6-194.8-171.7-195.7-164.3-196.6-160.7-191.3-158.9-184.3-157.2-178.1-152.6-174.9-146-176.6-139.5-178.2-138.6-183.2-139.5-189-142-205.4-155-216.7-171.4-216.5-188.4-216.3-203.5-202.1-205.9-184.2-209.7-155-192.7-132.8-162.4-127.6-121.4-120.6-91.1-90.7-83.8-49.9-83-45.1-83.7-40-83.7-34.5-91.9-33-100-31.5-109-29.9-108.2-38.7-107.9-46.9-110.2-54.8-117.2-78.4-132.3-94.1-156-100.9-165-103.5-174.4-104.6-183.6-106.5-198-109.6-209.9-116-215.1-130.9-215.2-131.4-215.5-131.8-215.8-132.2-216-132.4-216.3-132.6-217.4-133.4-222.3-127.9-226.6-122.5-224.7-114.4-223-107.1-218.3-101.7-212.9-97.1-223.3-75.4-223.5-63.4-213.1-60.2-212.1-62.8-211.1-65.4-210-68-205.2-79.9-197.3-85.6-184.4-85.1-162.5-84.1-143.3-78.1-132.4-56.5-125.7-43.3-129.1-26-141.7-14.9-154.5-3.5-169.9-1.5-181.3-9.7-186-13.1-189-17.7-190.3-23.4-191.7-29.1-189.9-33.8-185.7-37.3-181.8-40.5-177.3-40-172.9-37.8-166-34.3-160-35-156.7-42.4-153.6-49.5-158.3-53.3-163.9-56.2-176.8-63-192.9-60.7-201.6-51-213.7-37.4-214.8-21.6-204.7-5.5-190.5 17.2-159.3 22.8-136.9 7-108.4-13.1-77.5-20-44-7.2-32.9-2.9-22.9 3.9-15.5 14.1-20.3 20.9-25 27.6-29.1 33.4-33.1 30-36.8 26.4-40.9 23.2-65.5 4.1-92.5 3.5-121.8 21.5-134.2 29.1-146.4 36.7-161.9 35.5-167.4 35.1-171.5 31.6-177.1 30.4-178.1 38.4-176.7 45.1-170.6 49.9-164.8 54.5-157.6 55.1-150.2 55.8-149.4 67-146.9 77.1-136 82.4-133.3 83.7-130.3 85.3-126.4 84-127.8 79-129.7 74.2-130.5 69.3-132.9 52-121 44.6-108.5 37.3-88.5 25.6-64.3 26.8-51.1 41.6-39.8 54.3-40.9 69.3-46.7 84.1-51.1 95-61.1 101-72.9 100.6-83.6 100.3-92.1 92.1-90.8 83.4-90 78.6-87.3 75.6-82.8 74.3-75.4 72.2-69.3 68.5-72.4 59.7-75.4 50.9-83 52.9-89.4 54.8-102.9 58.8-112.2 72-111.9 85.6-111.6 100.8-100.9 114.4-86 118.7-55.2 127.5-26.4 108-22.9 76-18.6 35.6 21.8-1.7 62.2-2.5 65-2.6 67.8-2.8 69.8-0.3 71.2 7.4 72.7 15.1 74.2 23.3 68.5 23.6 63.2 22.2 57.7 23 27.2 27.2 3.4 52.8 0.6 83.7-0.9 100-4.1 116.4-19.5 126.5-22.2 128.3-25.3 129.4-28.2 130.8-23.7 143-8.8 141.6 8 127.5 16.3 133 24.9 139.6 36 134.8 39.1 133.4 42.7 132.3 44.8 127.8 41.7 126.5 38.8 125.3 35.9 124.1 25.4 119.8 19.5 112.3 19.4 100.6 19.1 72.7 31.8 51.7 53 44.9 67.1 40.3 82.9 46 91.7 58.9 101.7 73.5 102.6 85.9 94.3 96.2 90.5 100.9 85.9 104.4 79.6 105 68.4 105.9 62 96.9 66.9 86.8 70.2 80.1 69 74.7 62.5 71.3 55.8 67.6 51.6 72.4 48.9 77.3 42.5 88.9 42.2 100.8 50.1 111.8 57.7 122.3 68.3 127.1 81.3 125.5 99.7 123.4 111.5 112.3 117.8 96 124.8 77.7 118.7 61.3 107.8 45.9 84.1 12.5 83-37.9 115.4-67.5 116.2-68.3 117.2-69 118.2-69.9 124.9-65.1 131.5-60.5 138.8-55.4 129.1-48 122.1-39.4 117.9-28.7 108.4-4 113.6 18.5 128.1 39.8 136.2 51.7 141.9 64.5 139.1 79.4 138.4 83.3 136.5 86.9 134.8 91.3 142.8 92.6 149.1 91.1 154.2 85 159.1 79.1 158.6 71.6 160.1 65 182.8 57.8 191.7 50 187.5 40.7 184.5 41.8 181.6 42.9 178.6 43.9 169.8 46.8 161.1 46.4 154.4 39.7 135 19.9 124.2-8.3 143.8-32.1 158.5-50 192.7-45.6 202.9-24.9 209.2-12.2 201.4 5.5 189.6 5.2 183.7 5.1 180 2.2 178.4-3.5 176.5-10.6 172.7-16.1 164.5-13.7 156.4-11.2 156.8-4.2 158.7 2.4 163.4 18.1 175.9 26.9 192.1 26 206 25.3 220.8 12.5 223.7-1.3 230.4-33.2 211-59.5 178.4-63 143.5-66.7 107.4-102.3 103.1-136.6 102.3-142.6 101.9-148.4 102.2-155 110.5-156.4 118.6-157.9 126.8-159.4 128.8-156.1 127-152.9 127-149.8 126.4-121.2 150.8-93.3 180.4-87.8 194.4-85.3 209.1-85.2 221.2-76 227.7-71.1 232.3-65.1 235.2-56.7 241.8-62.2 244.6-68.2 243.2-76 242-83.5 236.6-88.4 231.5-93.9 240.5-105.8 245.3-117.7 233.6-130.1 230.6-129.7 230.6-127.9 230.1-126.3 225.2-109.6 212.5-102.7 195.3-105.8 177-109 161-114.8 151.7-132.5 145.5-144.4 146.1-159.6 155.4-170.2 165-181.1 176.9-188.4 192.4-184.7 203-182.2 211.1-170.1 209.1-160.5 207.4-152.4 199.9-148.6 192.4-152 185.9-155 179.5-156.1 175.7-148.7 171.8-141.1 177.2-137 183.1-133.7 193.4-127.8 209.1-129.6 218.7-137.8 228.7-146.5 233.2-163 228.5-174.8 216.3-206 181.8-216 154.5-196.4 124.6-175 92.5-169.3 58.1-184.6 48.7-188.8 41.1-195.5 34.4-203.7 39.2-210.6 43.9-217.4 49-224.8 56.4-215.1 65-207.7 76-203.6 100.9-194.2 123.6-199.8 144.8-214.3 156.8-222.4 169.5-228 184.4-225 188.2-224.2 191.7-222.2 195.9-220.6 197.6-241.2 183.8-244.3 169.4-246.2 162.6-268.9 155.5-277.1 145.2-273.6 146-271 147-268.3 147.8-265.7 152.1-251.8 150-243.5 138.4-234.9 120.6-221.8 101.6-213 79.4-224.7 66.9-231.2 61-242 61.4-255.8 61.7-269.2 65.7-281.4 78.5-288.5 90.3-295 107.1-289.3 109.3-278.3 110.6-272.2 108.5-267.5 102.3-265.1 97.4-263.3 91.9-261.9 90.6-255.8 88.7-246.9 96.1-241.6 106.2-244.4 120.6-248.4 130.5-260.8 130.6-274.9 130.7-291.3 120.1-304.5 103-309.5 73.2-318.1 44.3-296.5 40.9-263 37.9-232.4 6-197.2-24.3-190.4-33.1-188.4-41.8-187.1-50.9-188.2-52.5-196.5-53.9-204.6-55.6-213.5-50.1-213.5-45-213-40.1-213.5-11.4-216.5 11-238 16.6-266.2 19.4-280.1 19.5-294.9 28.4-307.1 33.2-313.8 39.3-318.6 47.1-321.1 42.2-332.7 30.8-331.6 10.5-317.8-1-326.9-13.1-331-25.8-319.9-24.9-316-22-316.5-19.9-315.7-5.7-310.4-0.1-303-0.8-287.8-1.9-266.2-8.3-247.2-29.8-236.8-49.8-227.3-77.8-242.7-80.4-264.8-82.2-281.1-76.1-291.1-61.6-295.4-56.7-296.9-52.6-294.9-49.3-291.6-46-288.1-45.1-283.9-47.2-279.3-50.3-272.4-52.2-265.1-43.2-261.5-34.5-258.1-31-264.8-28.2-271.3-22.8-284-26-298.8-35.8-307.3-48-317.8-64.3-319.4-77.4-311.3-103.2-295.3-109.5-266.2-92.3-241-70-208.3-63.5-174.2-83.5-138-87.4-130.9-92.5-124.5-99.6-119.9"></path></g><g class="mark__letters"><path transform="matrix(57.363,-62.725,-62.725,-57.363,748.915,822.023)" d="M0.056 0H0.252V0.392L0.386 0H0.55L0.683 0.389V0H0.879V0.705H0.643L0.47 0.247 0.293 0.705H0.056V0Z"></path><path transform="matrix(70.518,-47.458,-47.458,-70.518,819.508,752.924)" d="M0.056 0H0.252V0.705H0.056V0Z"></path><path transform="matrix(78.627,-32.293,-32.293,-78.627,858.247,727.475)" d="M0.429 0.468C0.429 0.42 0.402 0.394 0.349 0.394H0.252V0.541H0.349C0.402 0.541 0.429 0.512 0.429 0.468M0.056 0.705V0H0.252V0.26H0.273L0.413 0H0.632L0.473 0.275C0.578 0.307 0.628 0.387 0.628 0.479 0.628 0.605 0.54 0.705 0.365 0.705H0.056Z"></path><path transform="matrix(84.324,-10.702,-10.702,-84.324,928.83,700.688)" d="M0.54 0H0.747L0.491 0.705H0.265L0.008 0H0.214L0.252 0.115H0.502L0.54 0M0.453 0.265H0.302L0.377 0.493 0.453 0.265Z"></path><path transform="matrix(84.23,11.415,11.415,-84.23,1011.928,693.152)" d="M0.44 0.22C0.44 0.178 0.415 0.158 0.366 0.158H0.252V0.286H0.365C0.413 0.286 0.44 0.263 0.44 0.22M0.425 0.486C0.425 0.445 0.399 0.425 0.351 0.425H0.252V0.549H0.351C0.399 0.549 0.425 0.528 0.425 0.486M0.641 0.192C0.641 0.272 0.59 0.343 0.506 0.362 0.575 0.381 0.625 0.437 0.625 0.522 0.625 0.639 0.537 0.705 0.394 0.705H0.056V0H0.405C0.556 0 0.641 0.073 0.641 0.192Z"></path><path transform="matrix(80.153,28.293,28.293,-80.153,1087.588,707.049)" d="M0.056 0H0.252V0.705H0.056V0Z"></path><path transform="matrix(73.787,42.197,42.197,-73.787,1131.084,723.612)" d="M0.056 0.705V0H0.471V0.15H0.252V0.705H0.056Z"></path><path transform="matrix(65.096,54.658,54.658,-65.096,1183.65,756.579)" d="M0.056 0H0.252V0.705H0.056V0Z"></path><path transform="matrix(53.236,66.264,66.264,-53.236,1218.745,786.937)" d="M0.585 0.214C0.585 0.44 0.246 0.406 0.246 0.511 0.246 0.545 0.269 0.562 0.298 0.561 0.334 0.561 0.361 0.541 0.363 0.497H0.576C0.569 0.637 0.463 0.716 0.301 0.716 0.152 0.716 0.037 0.642 0.037 0.504 0.034 0.259 0.376 0.312 0.377 0.199 0.377 0.166 0.35 0.148 0.315 0.148 0.279 0.148 0.248 0.166 0.244 0.219H0.035C0.043 0.068 0.165-0.007 0.322-0.007 0.489-0.007 0.585 0.09 0.585 0.214Z"></path><path transform="matrix(23.871,43.934,43.934,-23.871,683.554,1165.932)" d="M0.075 0H0.189V0.304H0.419V0.397H0.189V0.602H0.484V0.695H0.075V0Z"></path><path transform="matrix(29.422,40.427,40.427,-29.422,710.515,1210.999)" d="M0.075 0H0.189V0.695H0.075V0Z"></path><path transform="matrix(34.998,35.709,35.709,-34.998,735.167,1242.917)" d="M0.532 0.696V0.178L0.189 0.696H0.075V0H0.189V0.519L0.532 0H0.646V0.696H0.532Z"></path><path transform="matrix(40.815,28.881,28.881,-40.815,781.622,1286.712)" d="M0.302 0.695H0.075V0H0.302C0.525 0 0.671 0.131 0.671 0.345 0.671 0.56 0.525 0.695 0.302 0.695M0.189 0.093V0.602H0.302C0.466 0.602 0.554 0.504 0.554 0.345 0.554 0.187 0.466 0.093 0.302 0.093H0.189Z"></path><path transform="matrix(47.285,16.251,16.251,-47.285,870.407,1337.463)" d="M0.246 0.252V0H0.36V0.252L0.59 0.695H0.464L0.303 0.354 0.142 0.695H0.015L0.246 0.252Z"></path><path transform="matrix(49.421,7.586,7.586,-49.421,925.943,1354.338)" d="M0.747 0.349C0.747 0.557 0.59 0.704 0.392 0.704 0.196 0.704 0.037 0.557 0.037 0.349 0.037 0.14 0.196-0.007 0.392-0.007 0.59-0.007 0.747 0.14 0.747 0.349M0.154 0.349C0.154 0.506 0.254 0.604 0.392 0.604 0.53 0.604 0.63 0.506 0.63 0.349 0.63 0.192 0.53 0.092 0.392 0.092 0.254 0.092 0.154 0.192 0.154 0.349Z"></path><path transform="matrix(49.978,-1.479,-1.479,-49.978,992.516,1361.758)" d="M0.074 0.254C0.074 0.077 0.198-0.007 0.344-0.007 0.489-0.007 0.617 0.077 0.617 0.254V0.695H0.503V0.252C0.503 0.144 0.442 0.093 0.345 0.093 0.249 0.093 0.188 0.144 0.188 0.252V0.695H0.074V0.254Z"></path><path transform="matrix(48.988,-10.009,-10.009,-48.988,1054.502,1357.438)" d="M0.444 0.487C0.444 0.418 0.404 0.369 0.315 0.369H0.189V0.602H0.315C0.404 0.602 0.444 0.557 0.444 0.487M0.075 0.695V0H0.189V0.278H0.276L0.436 0H0.572L0.4 0.288C0.517 0.317 0.561 0.405 0.561 0.487 0.561 0.6 0.48 0.695 0.315 0.695H0.075Z"></path><path transform="matrix(44.273,-23.236,-23.236,-44.273,1148.536,1328.612)" d="M0.467 0.199C0.467 0.132 0.42 0.093 0.343 0.093H0.189V0.31H0.339C0.415 0.31 0.467 0.268 0.467 0.199M0.449 0.502C0.449 0.438 0.404 0.403 0.33 0.403H0.189V0.602H0.33C0.404 0.602 0.449 0.565 0.449 0.502M0.581 0.187C0.581 0.27 0.521 0.344 0.447 0.357 0.514 0.381 0.565 0.432 0.565 0.516 0.565 0.614 0.487 0.695 0.34 0.695H0.075V0H0.353C0.495 0 0.581 0.081 0.581 0.187Z"></path><path transform="matrix(40.195,-29.739,-29.739,-40.195,1199.347,1299.172)" d="M0.075 0.695V0H0.424V0.092H0.189V0.695H0.075Z"></path><path transform="matrix(36.159,-34.533,-34.533,-36.159,1237.418,1268.574)" d="M0.075 0H0.189V0.695H0.075V0Z"></path><path transform="matrix(31.093,-39.157,-39.157,-31.093,1265.54,1239.97)" d="M0.544 0.197C0.544 0.451 0.176 0.353 0.176 0.51 0.176 0.577 0.227 0.609 0.293 0.607 0.365 0.605 0.406 0.562 0.41 0.515H0.536C0.526 0.634 0.432 0.704 0.299 0.704 0.157 0.704 0.06 0.628 0.06 0.506 0.06 0.25 0.429 0.359 0.429 0.191 0.429 0.132 0.384 0.089 0.304 0.089 0.225 0.089 0.185 0.135 0.18 0.192H0.058C0.058 0.069 0.165-0.007 0.304-0.007 0.459-0.007 0.544 0.093 0.544 0.197Z"></path><path transform="matrix(24.299,-43.699,-43.699,-24.299,1299.619,1193.441)" d="M0.544 0.197C0.544 0.451 0.176 0.353 0.176 0.51 0.176 0.577 0.227 0.609 0.293 0.607 0.365 0.605 0.406 0.562 0.41 0.515H0.536C0.526 0.634 0.432 0.704 0.299 0.704 0.157 0.704 0.06 0.628 0.06 0.506 0.06 0.25 0.429 0.359 0.429 0.191 0.429 0.132 0.384 0.089 0.304 0.089 0.225 0.089 0.185 0.135 0.18 0.192H0.058C0.058 0.069 0.165-0.007 0.304-0.007 0.459-0.007 0.544 0.093 0.544 0.197Z"></path></g></svg>
+
+  <p class="eyebrow">Akkarai · ECR · Chennai</p>
+  <h1>Mirabilis Lounge <span class="amp">—</span><br>Bar <span class="amp">&amp;</span> Kitchen</h1>
+  <p class="sub">Where the road ends and the sea begins.</p>
+
+  <div class="divider" aria-hidden="true"><i></i></div>
+
+  <nav class="menus" aria-label="Download our menus">
+    <a class="card" href="food_menu.pdf" download>
+      <span class="num">i</span>
+      <span class="title">Food Menu</span>
+      <span class="note">From the kitchen</span>
+      <span class="dl">Download PDF
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 20h16"/></svg>
+      </span>
+    </a>
+    <a class="card" href="bar_menu.pdf" download>
+      <span class="num">ii</span>
+      <span class="title">Bar Menu</span>
+      <span class="note">From the bar</span>
+      <span class="dl">Download PDF
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 20h16"/></svg>
+      </span>
+    </a>
+  </nav>
+
+  <div class="info">
+    <span><b>Open daily</b>12:00 — 23:00</span>
+    <span><b>Kitchen last orders</b>22:30</span>
+  </div>
+</main>
+
+<div class="waves" aria-hidden="true">
+  <svg class="w3" viewBox="0 0 1600 120" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0"><path d="M0 70 Q100 45 200 70 T400 70 T600 70 T800 70 T1000 70 T1200 70 T1400 70 T1600 70 V120 H0Z" fill="#0f3d37" fill-opacity=".35"/></svg>
+  <svg class="w2" viewBox="0 0 1600 120" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0"><path d="M0 85 Q100 62 200 85 T400 85 T600 85 T800 85 T1000 85 T1200 85 T1400 85 T1600 85 V120 H0Z" fill="#1b6b5c" fill-opacity=".28"/></svg>
+  <svg class="w1" viewBox="0 0 1600 120" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0"><path d="M0 100 Q100 82 200 100 T400 100 T600 100 T800 100 T1000 100 T1200 100 T1400 100 T1600 100 V120 H0Z" fill="#c9a45c" fill-opacity=".16"/></svg>
+</div>
+
+<footer>
+  5, T.V.S. Avenue, Akkarai · East Coast Road, Chennai 600115 &nbsp;·&nbsp; © Mirabilis Lounge — Bar &amp; Kitchen
+</footer>
+
+</body>
+</html>
